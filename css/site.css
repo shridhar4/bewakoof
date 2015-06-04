@@ -1,0 +1,333 @@
+body,
+html {
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  background: #fff;
+}
+#bewakoof nav-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  background: #f0cc56;
+  z-index: 1000;
+}
+#bewakoof nav-top ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1rem;
+}
+#bewakoof nav-top ul.left li,
+#bewakoof nav-top ul.right li {
+  display: inline-block;
+  padding: 9px 10px;
+  line-height: 20px;
+  position: relative;
+}
+#bewakoof nav-top ul.left li:after,
+#bewakoof nav-top ul.right li:after {
+  position: absolute;
+  content: "";
+  right: -3px;
+  height: 24px;
+  top: 7px;
+  border-right: 1px solid rgba(255,255,255,0.4);
+}
+#bewakoof nav-top ul.left li:first-child,
+#bewakoof nav-top ul.right li:first-child {
+  padding-left: 0;
+}
+#bewakoof nav-top ul.left li:last-child:after,
+#bewakoof nav-top ul.right li:last-child:after {
+  display: none;
+}
+#bewakoof nav-top ul.left li>a,
+#bewakoof nav-top ul.right li>a {
+  color: inherit;
+}
+#bewakoof nav-top ul.left li>a [class*="md-"],
+#bewakoof nav-top ul.right li>a [class*="md-"] {
+  font-size: 17px;
+}
+#bewakoof nav-top ul.left li>a .text,
+#bewakoof nav-top ul.right li>a .text {
+  font-size: 12px;
+  color: #444;
+  vertical-align: text-bottom;
+  padding-left: 4px;
+}
+#bewakoof nav-top ul.left li>a:hover,
+#bewakoof nav-top ul.right li>a:hover {
+  text-decoration: none;
+}
+#bewakoof nav-top ul.left {
+  float: left;
+}
+#bewakoof nav-top ul.right {
+  float: right;
+}
+#bewakoof nav-top ul.right li:last-child {
+  padding-right: 0;
+}
+#bewakoof nav-top ul.right li>a .text {
+  text-transform: uppercase;
+}
+#bewakoof .navbar.init {
+  background: rgba(255,255,255,0.6);
+  border-bottom: #fff;
+  top: 38px;
+}
+#bewakoof .navbar .nav.navbar-nav>li>a {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-weight: 700;
+}
+#bewakoof .navbar .navbar-form {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+#bewakoof .navbar .navbar-brand {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 70px;
+}
+/*-------------------------- MAIN CAROUSEL ------------------------*/
+#bewakoof .carousel {
+  height: inherit;
+}
+#bewakoof .carousel .carousel-inner {
+  height: inherit;
+}
+#bewakoof .carousel .carousel-inner .item {
+  height: inherit;
+}
+#bewakoof .carousel .carousel-inner .item .slide-container {
+  margin: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: inherit;
+}
+@media screen and (min-width: 768px) {
+  #bewakoof .carousel-control .md-chevron-right,
+  #bewakoof .carousel-control .icon-next {
+    margin-right: -15px;
+  }
+  #bewakoof .carousel-control .md-keyboard-arrow-left,
+  #bewakoof .carousel-control .md-keyboard-arrow-right,
+  #bewakoof .carousel-control .icon-next,
+  #bewakoof .carousel-control .icon-prev {
+    font-size: 50px;
+    width: 30px;
+    height: 30px;
+    margin-top: -25px;
+  }
+}
+#bewakoof .carousel-control .md-keyboard-arrow-right,
+#bewakoof .carousel-control .icon-next {
+  right: 50%;
+  margin-right: -10px;
+}
+#bewakoof .carousel-control .md-keyboard-arrow-left,
+#bewakoof .carousel-control .md-keyboard-arrow-right,
+#bewakoof .carousel-control .icon-next,
+#bewakoof .carousel-control .icon-prev {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+}
+#bewakoof .carousel-caption {
+  right: auto;
+  top: 200px;
+  left: 15%;
+  bottom: auto;
+  max-width: 400px;
+}
+#bewakoof .carousel-caption h4 {
+  font-size: 50px;
+  font-weight: 300;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  text-transform: lowercase;
+}
+#bewakoof .carousel-caption p {
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  margin: 20px 10px;
+}
+/*------------------------- FORM ELEMENTS -----------------------------*/
+.btn-main {
+  height: 50px;
+  padding: 10px 20px;
+  background: transparent;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.btn-main.yellow:hover {
+  background: #f0cc56;
+  color: #444;
+  box-shadow: 0px 5px 5px -1px rgba(0,0,0,0.4);
+}
+.btn-main.white:hover {
+  background: #fff;
+  color: #444;
+  box-shadow: 0px 5px 5px -1px rgba(0,0,0,0.4);
+}
+/*------------------------- SUB BLOCKS  -----------------------------*/
+.sub-block.mens,
+.sub-block.womens {
+  height: 50%;
+  position: relative;
+  background-color: rgba(0,234,243,0.8);
+}
+.sub-block.mens .container,
+.sub-block.womens .container {
+  height: 100%;
+  position: relative;
+}
+.sub-block.mens .container .caption,
+.sub-block.womens .container .caption {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  max-width: 300px;
+  z-index: 1000;
+}
+.sub-block.mens .container .caption .title,
+.sub-block.womens .container .caption .title {
+  font-size: 50px;
+  font-weight: 300;
+  color: #fff;
+  text-align: center;
+  margin: 10px;
+  text-transform: lowercase;
+}
+.sub-block.mens .container .caption .text,
+.sub-block.womens .container .caption .text {
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  margin: 10px;
+  text-transform: uppercase;
+}
+.sub-block.mens .container ul.image-group,
+.sub-block.womens .container ul.image-group {
+  float: right;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.sub-block.mens .container ul.image-group li,
+.sub-block.womens .container ul.image-group li {
+  display: inline-block;
+  height: 100%;
+  max-height: 100%;
+  position: relative;
+  width: 200px;
+  margin: 0;
+  float: left;
+  overflow: hidden;
+}
+.sub-block.mens .container ul.image-group li .cover,
+.sub-block.womens .container ul.image-group li .cover {
+  background-color: rgba(0,234,243,0.8);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+.sub-block.mens .container ul.image-group li .img,
+.sub-block.womens .container ul.image-group li .img {
+  width: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: inherit;
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+.sub-block.mens .container ul.image-group li .btn-conteiner,
+.sub-block.womens .container ul.image-group li .btn-conteiner {
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 100;
+}
+.sub-block.mens .container ul.image-group li:hover .cover,
+.sub-block.womens .container ul.image-group li:hover .cover {
+  background: transparent;
+}
+.sub-block.mens .container ul.image-group li:hover .img,
+.sub-block.womens .container ul.image-group li:hover .img {
+  transform: scale(1.2);
+}
+.sub-block.mens .container ul.image-group li:hover .btn-main,
+.sub-block.womens .container ul.image-group li:hover .btn-main {
+  background: #fff;
+  color: #444;
+  box-shadow: 0px 5px 5px -1px rgba(0,0,0,0.4);
+}
+.sub-block.womens {
+  background-color: rgba(243,0,113,0.8);
+}
+.sub-block.womens .container .caption {
+  left: auto;
+  right: 0;
+}
+.sub-block.womens .container ul.image-group {
+  float: left;
+}
+.sub-block.womens .container ul.image-group li {
+  float: left;
+}
+.sub-block.womens .container ul.image-group li .cover {
+  background-color: rgba(243,0,113,0.8);
+}
+/*------------------------- NG-ANIMATE -----------------------------*/
+.animate-enter,
+.animate-leave {
+  -webkit-transition: 450ms cubic-bezier(0.47, 0, 0.745, 0.715) all;
+  -moz-transition: 450ms cubic-bezier(0.47, 0, 0.745, 0.715) all;
+  -ms-transition: 450ms cubic-bezier(0.47, 0, 0.745, 0.715) all;
+  -o-transition: 450ms cubic-bezier(0.47, 0, 0.745, 0.715) all;
+  transition: 450ms cubic-bezier(0.47, 0, 0.745, 0.715) all;
+}
+.animate-enter {
+  left: -100%;
+}
+.animate-enter.animate-enter-active {
+  left: 0;
+}
+.animate-leave {
+  left: 0;
+}
+.animate-leave.animate-leave-active {
+  left: 100%;
+}

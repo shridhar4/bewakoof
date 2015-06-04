@@ -1,0 +1,180 @@
+//   Created by Shridhar on 31-05-2015.
+html
+	head
+		title Bewakoof
+		meta(charset="UTF-8")
+		link(rel="stylesheet", type="text/css", href="css/bootstrap3/bootstrap.min.css")
+		link(rel="stylesheet", type="text/css", href="css/material_icons/css/material-design-iconic-font.min.css")
+		link(rel="stylesheet", type="text/css", href="css/site.css")
+		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css')
+	body#bewakoof(ng-app="bewakoofApp")
+		nav-top
+			.container
+				.row
+					.col-md-12
+						ul.left
+							li
+								a(href="javascript:void(0);")
+									span.md-local-atm
+									span.text Cash on delivery
+							li
+								a(href="javascript:void(0);")
+									span.md-flight
+									span.text International shipping
+							li
+								a(href="javascript:void(0);")
+									span.md-directions-bike
+									span.text Free shipping
+							li
+								a(href="javascript:void(0);")
+									span.md-email
+									span.text Contact us
+
+						ul.right
+							li
+								a(href="javascript:void(0);")
+									//span.md-pin-drop
+									span.text in
+							li
+								a(href="javascript:void(0);")
+									//span.md-swap-horiz
+									span.text Track order
+							li
+								a(href="javascript:void(0);")
+									//span.md-person
+									span.text log in
+							li
+								a(href="javascript:void(0);")
+									span.md-local-grocery-store
+
+		nav.navbar.navbar-default.navbar-fixed-top.init
+			.container
+				// Brand and toggle get grouped for better mobile display
+				.navbar-header
+					button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#collapse-1")
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href="#")
+						img(src="img/new_small_logo.png")
+				// Collect the nav links, forms, and other content for toggling
+				#collapse-1.collapse.navbar-collapse
+
+					form.navbar-form.navbar-left(role="search")
+						.form-group
+							input.form-control(type="text", placeholder="Search")
+							button.btn.btn-default(type="submit") Submit
+
+					ul.nav.navbar-nav.navbar-right
+						li
+							a(href="#") HOME
+						li.dropdown
+							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-expanded="false") WHAT'S NEW
+							ul.dropdown-menu(role="menu")
+								li
+									a(href="#") Action
+								li
+									a(href="#") Another action
+								li
+									a(href="#") Something else here
+								li.divider
+								li
+									a(href="#")
+										.flaticon-left217
+										| Separated link
+						li
+							a(href="#") MEN
+						li
+							a(href="#") WOMEN
+						li
+							a(href="#") MOBILE COVERS
+						li
+							a(href="#") FANBOOK
+
+		.container-fluid(ng-controller="mainCtrl")
+			.row(window-height)
+				carousel(interval="myInterval")
+					slide(ng-repeat="slide in slides", active="slide.active")
+						.slide-container(style="background-image:url({{slide.image}})" )
+						.carousel-caption(ng-animate="'animate'" )
+							h4 {{slide.title}}
+							p {{slide.text}}
+							div
+								button.btn-main.yellow View Collection &nbsp;
+									span.md-arrow-forward
+
+			.row(window-height)
+				.col-md-12.sub-block.mens
+					.container
+						.caption
+							.title Mens top
+							.text Lorem Ipsum is simply dummy text of the printing and typesetting industry...
+
+						ul.image-group
+							li
+								div.img(style="background-image:url(img/men/men1.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white t-Shirts &nbsp;
+										span.md-arrow-forward
+							li
+								div.img(style="background-image:url(img/men/men2.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white Shirts &nbsp;
+										span.md-arrow-forward
+							li
+								div.img(style="background-image:url(img/men/men3.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white Wests &nbsp;
+										span.md-arrow-forward
+							li
+								div.img(style="background-image:url(img/men/men4.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white Hoodies &nbsp;
+										span.md-arrow-forward
+				.col-md-12.sub-block.womens
+					.container
+						.caption
+							.title Womens top
+							.text Lorem Ipsum is simply dummy text of the printing and typesetting industry...
+
+						ul.image-group
+							li
+								div.img(style="background-image:url(img/women/women1.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white t-Shirts &nbsp;
+										span.md-arrow-forward
+							li
+								div.img(style="background-image:url(img/women/women2.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white Shirts &nbsp;
+										span.md-arrow-forward
+							li
+								div.img(style="background-image:url(img/women/women3.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white Wests &nbsp;
+										span.md-arrow-forward
+							li
+								div.img(style="background-image:url(img/women/women4.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white Hoodies &nbsp;
+										span.md-arrow-forward
+
+
+				// /.navbar-collapse
+			// /.container-fluid
+		script(src="js/libs/jquery-2.1.4.min.js")
+		script(src="js/libs/bootstrap.min.js")
+		script(src="js/libs/angular.min.js")
+		script(src="js/libs/ui-bootstrap-tpls-0.13.0.js")
+		script(src="js/plugins/angular-animate.min.js")
+		script(src="js/controllers/main_ctrl.js")
+		script(src="js/directives/main_directive.js")

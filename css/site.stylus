@@ -1,0 +1,310 @@
+body, html
+	font-family 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif
+	font-size 14px
+	background #ffffff
+
+//------------------------------ VARIABLES --------------------
+c_yellow = #F0CC56
+c_black = #444444
+c_white = #ffffff
+
+transitions(n){
+	-webkit-transition: all n ease-out;
+	-moz-transition: all n ease-out;
+	-o-transition: all n ease-out;
+	transition: all n ease-out;
+}
+
+//------------------------------ TOP NAVBAR --------------------
+#bewakoof
+	nav-top
+		position fixed
+		top 0
+		left 0
+		right 0
+		height 38px
+		background c_yellow
+		z-index 1000
+		ul
+			margin 0
+			padding 0
+			list-style none
+			font-size 1rem
+			&.left
+			&.right
+				li
+					display inline-block
+					padding 9px 10px
+					line-height 20px
+					position relative
+					&:after
+						position absolute
+						content ""
+						right -3px
+						height 24px
+						top 7px
+						border-right 1px solid rgba(255,255,255,0.4)
+
+					&:first-child
+						padding-left 0
+					&:last-child
+						&:after
+							display none
+					&>a
+						color inherit
+						[class*="md-"]
+							font-size 17px
+						.text
+							font-size 12px
+							color c_black
+							vertical-align text-bottom
+							padding-left 4px
+						&:hover
+							text-decoration none
+			&.left
+				float left
+			&.right
+				float right
+
+				li
+					&:last-child
+						padding-right 0
+					&>a
+						.text
+							text-transform uppercase
+
+//------------------------------ MAIN NAVBAR --------------------
+#bewakoof
+	.navbar
+		&.init
+			background rgba(255,255,255,0.6)
+			border-bottom #fff
+			top 38px
+		.nav
+			&.navbar-nav
+				&>li
+					&>a
+						padding-top 25px
+						padding-bottom 25px
+						font-weight 700
+
+		.navbar-form
+			margin-top 18px
+			margin-bottom 18px
+
+		.navbar-brand
+			padding-top 10px
+			padding-bottom 10px
+			height 70px
+
+/*-------------------------- MAIN CAROUSEL ------------------------*/
+#bewakoof
+	.carousel
+		height inherit
+		.carousel-inner
+			height inherit
+			.item
+				height inherit
+				.slide-container
+					margin auto
+					background-repeat no-repeat
+					background-size cover
+					width 100%
+					height inherit
+
+	@media screen and (min-width: 768px)
+		.carousel-control
+			.md-chevron-right
+			.icon-next
+				margin-right: -15px;
+
+			.md-keyboard-arrow-left
+			.md-keyboard-arrow-right
+			.icon-next
+			.icon-prev
+				font-size 50px
+				width: 30px;
+				height: 30px;
+				margin-top: -25px;
+
+	.carousel-control
+		.md-keyboard-arrow-right
+		.icon-next
+			right: 50%;
+			margin-right: -10px;
+
+		.md-keyboard-arrow-left
+		.md-keyboard-arrow-right
+		.icon-next
+		.icon-prev
+			position: absolute;
+			top: 50%;
+			z-index: 5;
+			display: inline-block;
+
+	.carousel-caption
+		right auto
+		top 200px
+		left 15%
+		bottom auto
+		max-width 400px
+		h4
+			font-size 50px
+			font-weight 300
+			text-shadow 2px 2px 5px rgba(0,0,0,0.3)
+			text-transform lowercase
+		p
+			font-size 16px
+			font-weight 300
+			text-transform uppercase
+			text-shadow 1px 1px 3px rgba(0,0,0,0.3)
+			margin 20px 10px
+
+
+
+/*------------------------- FORM ELEMENTS -----------------------------*/
+.btn-main
+	height 50px
+	padding 10px 20px
+	background transparent
+	color c_white
+	text-shadow 1px 1px 3px rgba(0,0,0,0.3)
+	text-transform uppercase
+	font-size 16px
+	font-weight 400
+	border 1px solid c_white
+	border-radius 4px
+	transitions(0.5s)
+	&.yellow
+		&:hover
+			background c_yellow
+			color c_black
+			box-shadow 0px 5px 5px -1px rgba(0,0,0,0.4)
+	&.white
+		&:hover
+			background c_white
+			color c_black
+			box-shadow 0px 5px 5px -1px rgba(0,0,0,0.4)
+
+
+
+/*------------------------- SUB BLOCKS  -----------------------------*/
+.sub-block
+	&.mens
+	&.womens
+		height 50%
+		position relative
+		background-color rgba(0,234,243,0.8)
+		.container
+			height 100%
+			position relative
+			.caption
+				position absolute
+				top 10%
+				left 0
+				max-width 300px
+				z-index 1000
+				.title
+					font-size 50px
+					font-weight 300
+					color #fff
+					text-align center
+					margin 10px
+					text-transform lowercase
+				.text
+					font-size 16px
+					font-weight 300
+					color #fff
+					margin 10px
+					text-transform uppercase
+
+			ul.image-group
+				float right
+				list-style none
+				padding 0
+				margin 0
+				position relative
+				height 100%
+				overflow hidden
+				li
+					display inline-block
+					height 100%
+					max-height 100%
+					position relative
+					width 200px
+					margin 0
+					float left
+					overflow hidden
+					.cover
+						background-color rgba(0,234,243,0.8)
+						position absolute
+						top 0
+						right 0
+						bottom 0
+						left 0
+						z-index 100
+						transitions(1s)
+
+					.img
+						width inherit
+						background-size cover
+						background-position center
+						background-repeat no-repeat
+						height inherit
+						transitions(1s)
+					.btn-conteiner
+						position absolute
+						top 50%
+						margin-top -25px
+						left 0
+						right 0
+						text-align center
+						z-index 100
+					&:hover
+						.cover
+							background transparent
+						.img
+							transform: scale(1.2)
+						.btn-main
+							background c_white
+							color c_black
+							box-shadow 0px 5px 5px -1px rgba(0,0,0,0.4)
+
+	&.womens
+		background-color rgba(243, 0, 113,0.8)
+		.container
+			.caption
+				left auto
+				right 0
+			ul.image-group
+				float left
+				li
+					float left
+					.cover
+						background-color rgba(243, 0, 113,0.8)
+
+
+/*------------------------- NG-ANIMATE -----------------------------*/
+.animate-enter,
+.animate-leave
+{
+	-webkit-transition: 450ms cubic-bezier(0.470, 0.000, 0.745, 0.715) all;
+	-moz-transition: 450ms cubic-bezier(0.470, 0.000, 0.745, 0.715) all;
+	-ms-transition: 450ms cubic-bezier(0.470, 0.000, 0.745, 0.715) all;
+	-o-transition: 450ms cubic-bezier(0.470, 0.000, 0.745, 0.715) all;
+	transition: 450ms cubic-bezier(0.470, 0.000, 0.745, 0.715) all;
+}
+
+.animate-enter {
+	left: -100%;
+}
+.animate-enter.animate-enter-active {
+	left: 0;
+}
+
+.animate-leave {
+	left: 0;
+}
+.animate-leave.animate-leave-active{
+	left: 100%;
+}
