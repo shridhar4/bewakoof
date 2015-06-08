@@ -6,11 +6,12 @@
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap3/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/material_icons/css/material-design-iconic-font.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/animate.css"/>
     <link rel="stylesheet" type="text/css" href="css/site.css"/>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css"/>
   </head>
-  <body id="bewakoof" ng-app="bewakoofApp">
-    <nav-top>
+  <body id="bewakoof" ng-app="bewakoofApp" check-scroll-top="check-scroll-top">
+    <nav-top ng-class="{'animated slideInDown':istop==true,'animated slideOutUp':istop==false}">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -33,33 +34,73 @@
         </div>
       </div>
     </nav-top>
-    <nav class="navbar navbar-default navbar-fixed-top init">
+    <nav ng-class="{'main':istop==false}" class="navbar navbar-default navbar-fixed-top init">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display-->
         <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target="#collapse-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand"><img src="img/new_small_logo.png"/></a>
+          <button type="button" data-toggle="collapse" data-target="#collapse-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand"><img src="img/new_logo.png"/><img src="img/new_small_logo.png" class="small"/></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling-->
         <div id="collapse-1" class="collapse navbar-collapse">
           <form role="search" class="navbar-form navbar-left">
             <div class="form-group">
               <input type="text" placeholder="Search" class="form-control"/>
-              <button type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" class="btn btn-default"><span class="md-search"></span></button>
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">HOME</a></li>
-            <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">WHAT'S NEW</a>
-              <ul role="menu" class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">
-                    <div class="flaticon-left217"></div>Separated link</a></li>
-              </ul>
+            <li><a href="#">WHAT'S NEW</a></li>
+            <li class="dropdown"><a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dLabel" class="dropdown-toggle">MEN</a>
+              <div role="menu" aria-labelledby="dLabel" class="dropdown-menu">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                      <ul dd-select-img="dd-select-img" class="item-menu">
+                        <li isource="1"><a href="#" class="item-title">New Arrivals</a></li>
+                        <li isource="2">
+                          <div class="item-title">Bewakoof Originals</div>
+                        </li>
+                        <li isource="3"><a href="#">Graphic T-Shirts</a></li>
+                        <li isource="4"><a href="#">Plain T-Shirts</a></li>
+                        <li isource="5">
+                          <div class="item-title">Bewakoof Premium</div>
+                        </li>
+                        <li isource="6"><a href="#">All-Over Print T-Shirts</a></li>
+                        <li isource="7"><a href="#">Printed Premiums</a></li>
+                        <li isource="8"><a href="#">Plain Premiums</a></li>
+                        <li isource="9"><a href="#">Printed Polos</a></li>
+                        <li isource="10"><a href="#">Pocket T-Shirts</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                      <ul dd-select-img="dd-select-img" class="item-menu">
+                        <li isource="11"><a href="#" class="item-title">Shirts</a></li>
+                        <li isource="12"><a href="#" class="item-title">Pyjamas</a></li>
+                        <li isource="13"><a href="#" class="item-title">Boxers</a></li>
+                        <li isource="14"><a href="#" class="item-title">Vests</a></li>
+                        <li isource="15"><a href="#" class="item-title">Full Sleeves T-Shirts</a></li>
+                        <li isource="16"><a href="#" class="item-title">V-Neck T-Shirts4</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                      <ul dd-select-img="dd-select-img" class="item-menu">
+                        <li isource="17"><a href="#" class="item-title">Sweatshirts</a></li>
+                        <li isource="18"><a href="#">Hoodies</a></li>
+                        <li isource="19"><a href="#">Zippers</a></li>
+                        <li isource="20"><a href="#">Crew Neck</a></li>
+                        <li isource="21"><a href="#" class="item-title">Bomber Jackets</a></li>
+                        <li isource="22"><a href="#" class="item-title">Shorts</a></li>
+                        <li isource="23"><a href="#">Chino Shorts</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-3 hidden-xs">
+                      <div class="dd-img {{imgclass}}"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
-            <li><a href="#">MEN</a></li>
             <li><a href="#">WOMEN</a></li>
             <li><a href="#">MOBILE COVERS</a></li>
             <li><a href="#">FANBOOK</a></li>
@@ -69,13 +110,14 @@
     </nav>
     <div ng-controller="mainCtrl" class="container-fluid">
       <div window-height="window-height" class="row">
+        <div style="position:absolute; font-size:40px; color: red; left:40%; top:30%; z-index:0">Bewakoof</div>
         <carousel interval="myInterval">
           <slide ng-repeat="slide in slides" active="slide.active">
             <div style="background-image:url({{slide.image}})" class="slide-container"></div>
-            <div ng-animate="'animate'" class="carousel-caption">
-              <h4>{{slide.title}}</h4>
-              <p>{{slide.text}}</p>
-              <div>
+            <div class="carousel-caption">
+              <h4 ng-show="slide.active" ng-class="{'animated fadeInRight':slide.active==true}">{{slide.title}}</h4>
+              <p ng-show="slide.active" ng-class="{'animated fadeInRight':slide.active==true}">{{slide.text}}</p>
+              <div ng-show="slide.active" ng-class="{'animated flipInX':slide.active==true}">
                 <button class="btn-main yellow">View Collection &nbsp;<span class="md-arrow-forward"></span></button>
               </div>
             </div>
@@ -94,7 +136,7 @@
                 <div style="background-image:url(img/men/men1.jpg)" class="img"></div>
                 <div class="cover"></div>
                 <div class="btn-conteiner">
-                  <button class="btn-main white">t-Shirts &nbsp;<span class="md-arrow-forward"></span></button>
+                  <button class="btn-main white">T-shirts &nbsp;<span class="md-arrow-forward"></span></button>
                 </div>
               </li>
               <li>
@@ -132,21 +174,21 @@
                 <div style="background-image:url(img/women/women1.jpg)" class="img"></div>
                 <div class="cover"></div>
                 <div class="btn-conteiner">
-                  <button class="btn-main white">t-Shirts &nbsp;<span class="md-arrow-forward"></span></button>
+                  <button class="btn-main white">T-shirts &nbsp;<span class="md-arrow-forward"></span></button>
                 </div>
               </li>
               <li>
                 <div style="background-image:url(img/women/women2.jpg)" class="img"></div>
                 <div class="cover"></div>
                 <div class="btn-conteiner">
-                  <button class="btn-main white">Shirts &nbsp;<span class="md-arrow-forward"></span></button>
+                  <button class="btn-main white">Raglan &nbsp;<span class="md-arrow-forward"></span></button>
                 </div>
               </li>
               <li>
                 <div style="background-image:url(img/women/women3.jpg)" class="img"></div>
                 <div class="cover"></div>
                 <div class="btn-conteiner">
-                  <button class="btn-main white">Wests &nbsp;<span class="md-arrow-forward"></span></button>
+                  <button class="btn-main white">Tanks &nbsp;<span class="md-arrow-forward"></span></button>
                 </div>
               </li>
               <li>
@@ -159,6 +201,76 @@
             </ul>
           </div>
         </div>
+      </div>
+      <div window-height="window-height" class="row">
+        <div class="col-md-12 sub-block mens bottom">
+          <div class="container">
+            <div class="caption">
+              <div class="title">Mens bottom</div>
+              <div class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</div>
+            </div>
+            <ul class="image-group">
+              <li>
+                <div style="background-image:url(img/men/men5.jpg)" class="img"></div>
+                <div class="cover"></div>
+                <div class="btn-conteiner">
+                  <button class="btn-main white">Pyjamas &nbsp;<span class="md-arrow-forward"></span></button>
+                </div>
+              </li>
+              <li>
+                <div style="background-image:url(img/men/men6.jpg)" class="img"></div>
+                <div class="cover"></div>
+                <div class="btn-conteiner">
+                  <button class="btn-main white">Boxers &nbsp;<span class="md-arrow-forward"></span></button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12 sub-block womens bottom">
+          <div class="container">
+            <div class="caption">
+              <div class="title">Womens bottom</div>
+              <div class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</div>
+            </div>
+            <ul class="image-group">
+              <li>
+                <div style="background-image:url(img/women/women5.jpg)" class="img"></div>
+                <div class="cover"></div>
+                <div class="btn-conteiner">
+                  <button class="btn-main white">Boxers  &nbsp;<span class="md-arrow-forward"></span></button>
+                </div>
+              </li>
+              <li>
+                <div style="background-image:url(img/women/women6.jpg)" class="img"></div>
+                <div class="cover"></div>
+                <div class="btn-conteiner">
+                  <button class="btn-main white">Leggings  &nbsp;<span class="md-arrow-forward"></span></button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div window-height="window-height" class="row">
+        <div paralla-x="{'xpos':'50%','speed':'-0.15'}" class="col-md-12 sub-block mobile-covers">
+          <div class="container">
+            <div class="caption">
+              <div class="title">Mobile Covers</div>
+              <div class="text">Apple &nbsp; | &nbsp;  Asus &nbsp; | &nbsp; Google &nbsp; | &nbsp; Huawei &nbsp; | &nbsp; LG &nbsp; | &nbsp;  Micromax &nbsp; | &nbsp; Motorola &nbsp; | &nbsp; Samsung &nbsp; | &nbsp; Sony &nbsp; Xiaomi &nbsp; | &nbsp; HTC &nbsp; | &nbsp; OnePlus</div>
+            </div>
+          </div>
+        </div>
+        <div paralla-x="{'xpos':'50%','speed':'-0.15'}" class="col-md-12 sub-block fanbook">
+          <div class="container">
+            <div class="caption">
+              <div class="text-conteiner">
+                <div class="title">FANBOOK</div>
+                <div class="text">Upload your pics with our products to get featured. Upload your picture &nbsp;<a href="#">here</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- /.navbar-collapse-->
       </div>
       <!-- /.container-fluid-->
@@ -168,6 +280,7 @@
     <script src="js/libs/angular.min.js"></script>
     <script src="js/libs/ui-bootstrap-tpls-0.13.0.js"></script>
     <script src="js/plugins/angular-animate.min.js"></script>
+    <script src="js/plugins/jquery.parallax-1.1.3.js"></script>
     <script src="js/controllers/main_ctrl.js"></script>
     <script src="js/directives/main_directive.js"></script>
   </body>

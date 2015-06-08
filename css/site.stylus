@@ -3,28 +3,44 @@ body, html
 	font-size 14px
 	background #ffffff
 
-//------------------------------ VARIABLES --------------------
+//------------------------------ VARIABLES & MIXINS --------------------
 c_yellow = #F0CC56
 c_black = #444444
 c_white = #ffffff
+c_blue = #2196F3
 
 transitions(n){
 	-webkit-transition: all n ease-out;
 	-moz-transition: all n ease-out;
 	-o-transition: all n ease-out;
+	-ms-transition: all n ease-out;
 	transition: all n ease-out;
 }
+delayduration(x,y)
+	-webkit-animation-duration: x;
+	-moz-animation-duration: x;
+	-o-animation-duration: x;
+	-ms-animation-duration: x;
+	animation-duration: x;
+
+	-webkit-animation-delay: y;
+	-moz-animation-delay: y;
+	-o-animation-delay: y;
+	-ms-animation-delay: y;
+	animation-delay: y;
 
 //------------------------------ TOP NAVBAR --------------------
 #bewakoof
 	nav-top
+		delayduration 0.6s 0s
 		position fixed
 		top 0
 		left 0
 		right 0
 		height 38px
-		background c_yellow
+		background c_black
 		z-index 1000
+		color #ccc
 		ul
 			margin 0
 			padding 0
@@ -43,7 +59,7 @@ transitions(n){
 						right -3px
 						height 24px
 						top 7px
-						border-right 1px solid rgba(255,255,255,0.4)
+						border-right 1px solid rgba(0,0,0,0.3)
 
 					&:first-child
 						padding-left 0
@@ -51,16 +67,17 @@ transitions(n){
 						&:after
 							display none
 					&>a
-						color inherit
+						color #ccc
+						transition 0.5s
 						[class*="md-"]
 							font-size 17px
 						.text
 							font-size 12px
-							color c_black
 							vertical-align text-bottom
 							padding-left 4px
 						&:hover
 							text-decoration none
+							color  c_white
 			&.left
 				float left
 			&.right
@@ -76,10 +93,16 @@ transitions(n){
 //------------------------------ MAIN NAVBAR --------------------
 #bewakoof
 	.navbar
+		transitions 0.5s
 		&.init
-			background rgba(255,255,255,0.6)
+			background rgba(240,204,86,0.6)
 			border-bottom #fff
 			top 38px
+			&.main
+				background rgb(240,204,86)
+				top 0
+				box-shadow 0 7px 7px -5px rgba(0,0,0,0.2)
+
 		.nav
 			&.navbar-nav
 				&>li
@@ -87,15 +110,164 @@ transitions(n){
 						padding-top 25px
 						padding-bottom 25px
 						font-weight 700
+						color c_black
+						transition 0.5s
+						position relative
+						&:hover
+							color #000000
+
+					/*&>.open
+						&>a
+							color #000000
+							background inherit
+							&:hover
+							&:focus
+								color #000000
+								background inherit*/
+
+
+					&.dropdown
+						position static
+						&:hover
+							&>a.dropdown-toggle
+								color #000000
+								&:after
+									content ""
+									position absolute
+									bottom 0;
+									left 45%
+									display block
+									border 10px solid transparent
+									border-bottom-color #ffffff
+									border-top-width 0px
+							.dropdown-menu
+								display block
+						.dropdown-menu
+							right 0
+							left 0
+							border none
+							border-radius 0
+
 
 		.navbar-form
 			margin-top 18px
 			margin-bottom 18px
+			padding 0
+			.form-group
+				position relative
+				input
+					border none
+					min-width 320px
+					padding-right 36px
+					transitions 0.5s
+					&:hover
+					&:focus
+						box-shadow 0 5px 5px -2px rgba(0,0,0,0.1)
+				button
+					position absolute
+					background transparent
+					border none
+					font-size 22px
+					padding 6px
+					right 0
+					top 0
+					left auto
+
 
 		.navbar-brand
 			padding-top 10px
 			padding-bottom 10px
 			height 70px
+			img
+				max-height 50px
+				&.small
+					display none
+		.navbar-toggle
+			background: #fff;
+			margin-top: 18px;
+			margin-bottom: 18px;
+			border-color: #fff;
+
+	.dropdown-menu
+		padding-bottom 15px
+		ul.item-menu
+			list-style none
+			margin 0
+			padding 0
+			&>li
+				font-size 14px
+				&>.item-title
+					color c_black
+					font-weight bold
+					padding-bottom 4px
+					padding-top 15px
+					display inline-block
+					text-transform capitalize
+
+				a
+					color #888888
+					padding 4px 0
+					display inline-block
+					&:hover
+					&:focus
+						text-decoration none
+						color c_blue
+	.dd-img
+		background url("../img/dropdown.jpg")
+		height: 214px
+		width: 138px
+		background-repeat: no-repeat
+		background-position: 0 0
+		border-radius: 4px
+		border: 1px solid #eee
+		margin-top: 30px
+		box-shadow: 0px 13px 10px -10px rgba(0,0,0,0.2)
+		&.dd-img-1
+			background-position 0 0
+		&.dd-img-2
+			background-position -138px 0
+		&.dd-img-3
+			background-position 0 -215px
+		&.dd-img-4
+			background-position -140px -217px
+		&.dd-img-5
+			background-position 0 -437px
+		&.dd-img-6
+			background-position 0 -2405px
+		&.dd-img-7
+			background-position -138px -434px
+		&.dd-img-8
+			background-position 0 -652px
+		&.dd-img-9
+			background-position -138px -650px
+		&.dd-img-10
+			background-position -138px -3500px
+		&.dd-img-11
+			background-position 0 -874px
+		&.dd-img-12
+			background-position -138px -874px
+		&.dd-img-13
+			background-position -138px -3724px
+		&.dd-img-14
+			background-position 0 -1093px
+		&.dd-img-15
+			background-position -138px -1093px
+		&.dd-img-16
+			background-position 0 -1312px
+		&.dd-img-17
+			background-position -140px -1312px
+		&.dd-img-18
+			background-position 0 -1530px
+		&.dd-img-19
+			background-position -138px -1530px
+		&.dd-img-20
+			background-position 0 -1749px
+		&.dd-img-21
+			background-position 0 -3500px
+		&.dd-img-22
+			background-position -138px -1749px
+		&.dd-img-23
+			background-position 0 -2186px
 
 /*-------------------------- MAIN CAROUSEL ------------------------*/
 #bewakoof
@@ -148,17 +320,24 @@ transitions(n){
 		left 15%
 		bottom auto
 		max-width 400px
+
+
 		h4
 			font-size 50px
 			font-weight 300
 			text-shadow 2px 2px 5px rgba(0,0,0,0.3)
 			text-transform lowercase
+			delayduration(1.5s,0s)
 		p
 			font-size 16px
 			font-weight 300
 			text-transform uppercase
 			text-shadow 1px 1px 3px rgba(0,0,0,0.3)
 			margin 20px 10px
+			delayduration(1.5s,0.2s)
+
+		&>div
+			delayduration(1s,1.2s)
 
 
 
@@ -195,6 +374,7 @@ transitions(n){
 		height 50%
 		position relative
 		background-color rgba(0,234,243,0.8)
+
 		.container
 			height 100%
 			position relative
@@ -208,15 +388,17 @@ transitions(n){
 					font-size 50px
 					font-weight 300
 					color #fff
-					text-align center
+					//text-align center
 					margin 10px
 					text-transform lowercase
+					text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
 				.text
 					font-size 16px
-					font-weight 300
+					font-weight 400
 					color #fff
 					margin 10px
 					text-transform uppercase
+					text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
 
 			ul.image-group
 				float right
@@ -269,6 +451,18 @@ transitions(n){
 							background c_white
 							color c_black
 							box-shadow 0px 5px 5px -1px rgba(0,0,0,0.4)
+		&.bottom
+			background-color rgba(83, 109, 254,0.8)
+			.container
+				.caption
+					max-width 400px
+				ul.image-group
+					li
+						.cover
+							background-color rgba(83, 109, 254,0.8)
+						&:hover
+							.cover
+								background transparent
 
 	&.womens
 		background-color rgba(243, 0, 113,0.8)
@@ -282,29 +476,117 @@ transitions(n){
 					float left
 					.cover
 						background-color rgba(243, 0, 113,0.8)
+		&.bottom
+			background-color rgba(244, 67, 54, 0.8)
+			.container
+				.caption
+					max-width 400px
+				ul.image-group
+					float left
+					li
+						float left
+						.cover
+							background-color rgba(244, 67, 54, 0.8)
+						&:hover
+							.cover
+								background transparent
 
 
-/*------------------------- NG-ANIMATE -----------------------------*/
-.animate-enter,
-.animate-leave
-{
-	-webkit-transition: 450ms cubic-bezier(0.470, 0.000, 0.745, 0.715) all;
-	-moz-transition: 450ms cubic-bezier(0.470, 0.000, 0.745, 0.715) all;
-	-ms-transition: 450ms cubic-bezier(0.470, 0.000, 0.745, 0.715) all;
-	-o-transition: 450ms cubic-bezier(0.470, 0.000, 0.745, 0.715) all;
-	transition: 450ms cubic-bezier(0.470, 0.000, 0.745, 0.715) all;
-}
+	&.mobile-covers
+	&.fanbook
+		.caption
+			position absolute
+			top 30%
+			left 0%
+			right 0%
+			text-align center
+			.title
+				font-size 50px
+				font-weight 300
+				color #fff
+				//text-align center
+				margin 10px
+				text-transform lowercase
+				text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+			.text
+				font-size 16px
+				font-weight 400
+				color #fff
+				margin 10px
+				text-transform uppercase
+				cursor pointer
+				text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+		height 50%
+		background url("../img/mobile_covers_desktop_new.jpg") no-repeat center bottom
+		background-size cover
 
-.animate-enter {
-	left: -100%;
-}
-.animate-enter.animate-enter-active {
-	left: 0;
-}
+	&.fanbook
+		background url("../img/fanbook.jpg") no-repeat center bottom
+		background-size cover
+		.caption
+			.text-conteiner
+				width 400px
+				background #fff
+				border-radius 8px
+				padding  0 10px 10px 10px
+				display inline-block
+				box-shadow: 0 0px 20px 10px rgba(0,0,0,0.5);
+				.title
+					color c_black
+				.text
+					color c_black
+					cursor default
 
-.animate-leave {
-	left: 0;
-}
-.animate-leave.animate-leave-active{
-	left: 100%;
-}
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and ( max-width :479px)
+	#bewakoof
+		nav-top
+			ul.left
+				li
+					&>a
+						.text
+							display none
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) and ( max-width : 767px)
+	#bewakoof
+		nav-top
+			ul.left
+				li
+					&>a
+						.text
+							display none
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and ( max-width : 991px)
+	#bewakoof
+		nav-top
+			ul.left
+				li
+					&>a
+						.text
+							display none
+		.navbar
+			.navbar-brand
+				img
+					display none
+					&.small
+						display block
+		.navbar-form
+			display none
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) and ( max-width : 1199px)
+	#bewakoof
+		.navbar
+			.navbar-brand
+				img
+					display none
+					&.small
+						display block
+
+@media only screen and (min-width : 992px){}

@@ -30,7 +30,7 @@ bewakoof.controller('mainCtrl', function($scope,$rootScope) {
 	}, function (currentSlide, previousSlide) {
 		if (currentSlide !== previousSlide) {
 			$scope.capt = true;
-			//console.log('currentSlide:', currentSlide);
+			console.log('currentSlide:', currentSlide);
 		}
 	});*/
 })

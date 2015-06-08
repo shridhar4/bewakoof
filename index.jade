@@ -5,10 +5,11 @@ html
 		meta(charset="UTF-8")
 		link(rel="stylesheet", type="text/css", href="css/bootstrap3/bootstrap.min.css")
 		link(rel="stylesheet", type="text/css", href="css/material_icons/css/material-design-iconic-font.min.css")
+		link(rel="stylesheet", type="text/css", href="css/animate.css")
 		link(rel="stylesheet", type="text/css", href="css/site.css")
 		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css')
-	body#bewakoof(ng-app="bewakoofApp")
-		nav-top
+	body#bewakoof(ng-app="bewakoofApp",check-scroll-top)
+		nav-top(ng-class="{'animated slideInDown':istop==true,'animated slideOutUp':istop==false}")
 			.container
 				.row
 					.col-md-12
@@ -47,7 +48,7 @@ html
 								a(href="javascript:void(0);")
 									span.md-local-grocery-store
 
-		nav.navbar.navbar-default.navbar-fixed-top.init
+		nav.navbar.navbar-default.navbar-fixed-top.init(ng-class="{'main':istop==false}")
 			.container
 				// Brand and toggle get grouped for better mobile display
 				.navbar-header
@@ -57,34 +58,83 @@ html
 						span.icon-bar
 						span.icon-bar
 					a.navbar-brand(href="#")
-						img(src="img/new_small_logo.png")
+						img(src="img/new_logo.png")
+						img.small(src="img/new_small_logo.png")
 				// Collect the nav links, forms, and other content for toggling
 				#collapse-1.collapse.navbar-collapse
 
 					form.navbar-form.navbar-left(role="search")
 						.form-group
 							input.form-control(type="text", placeholder="Search")
-							button.btn.btn-default(type="submit") Submit
+							button.btn.btn-default(type="submit")
+								span.md-search
 
 					ul.nav.navbar-nav.navbar-right
 						li
 							a(href="#") HOME
-						li.dropdown
-							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-expanded="false") WHAT'S NEW
-							ul.dropdown-menu(role="menu")
-								li
-									a(href="#") Action
-								li
-									a(href="#") Another action
-								li
-									a(href="#") Something else here
-								li.divider
-								li
-									a(href="#")
-										.flaticon-left217
-										| Separated link
 						li
-							a(href="#") MEN
+							a(href="#") WHAT'S NEW
+						li.dropdown
+							a.dropdown-toggle(href="#",data-toggle="dropdown" aria-haspopup="true" aria-expanded="false", id="dLabel") MEN
+							.dropdown-menu(role="menu" aria-labelledby="dLabel")
+								.container
+									.row
+										.col-md-3.col-sm-3
+											ul.item-menu(dd-select-img)
+												li(isource="1")
+													a.item-title(href="#") New Arrivals
+												li(isource="2")
+													.item-title Bewakoof Originals
+												li(isource="3")
+													a(href="#") Graphic T-Shirts
+												li(isource="4")
+													a(href="#") Plain T-Shirts
+												li(isource="5")
+													.item-title Bewakoof Premium
+												li(isource="6")
+													a(href="#") All-Over Print T-Shirts
+												li(isource="7")
+													a(href="#") Printed Premiums
+												li(isource="8")
+													a(href="#") Plain Premiums
+												li(isource="9")
+													a(href="#") Printed Polos
+												li(isource="10")
+													a(href="#") Pocket T-Shirts
+										.col-md-3.col-sm-3
+											ul.item-menu(dd-select-img)
+												li(isource="11")
+													a.item-title(href="#") Shirts
+												li(isource="12")
+													a.item-title(href="#") Pyjamas
+												li(isource="13")
+													a.item-title(href="#") Boxers
+												li(isource="14")
+													a.item-title(href="#") Vests
+												li(isource="15")
+													a.item-title(href="#") Full Sleeves T-Shirts
+												li(isource="16")
+													a.item-title(href="#") V-Neck T-Shirts4
+										.col-md-3.col-sm-3
+											ul.item-menu(dd-select-img)
+												li(isource="17")
+													a.item-title(href="#") Sweatshirts
+												li(isource="18")
+													a(href="#") Hoodies
+												li(isource="19")
+													a(href="#") Zippers
+												li(isource="20")
+													a(href="#") Crew Neck
+												li(isource="21")
+													a.item-title(href="#") Bomber Jackets
+												li(isource="22")
+													a.item-title(href="#") Shorts
+												li(isource="23")
+													a(href="#") Chino Shorts
+										.col-md-3.col-sm-3.hidden-xs
+											div.dd-img(class="{{imgclass}}")
+
+
 						li
 							a(href="#") WOMEN
 						li
@@ -94,13 +144,14 @@ html
 
 		.container-fluid(ng-controller="mainCtrl")
 			.row(window-height)
+				div(style="position:absolute; font-size:40px; color: red; left:40%; top:30%; z-index:0") Bewakoof
 				carousel(interval="myInterval")
 					slide(ng-repeat="slide in slides", active="slide.active")
-						.slide-container(style="background-image:url({{slide.image}})" )
-						.carousel-caption(ng-animate="'animate'" )
-							h4 {{slide.title}}
-							p {{slide.text}}
-							div
+						.slide-container(style="background-image:url({{slide.image}})")
+						.carousel-caption
+							h4(ng-show="slide.active", ng-class="{'animated fadeInRight':slide.active==true}") {{slide.title}}
+							p(ng-show="slide.active", ng-class="{'animated fadeInRight':slide.active==true}") {{slide.text}}
+							div(ng-show="slide.active", ng-class="{'animated flipInX':slide.active==true}")
 								button.btn-main.yellow View Collection &nbsp;
 									span.md-arrow-forward
 
@@ -116,7 +167,7 @@ html
 								div.img(style="background-image:url(img/men/men1.jpg)")
 								.cover
 								.btn-conteiner
-									button.btn-main.white t-Shirts &nbsp;
+									button.btn-main.white T-shirts &nbsp;
 										span.md-arrow-forward
 							li
 								div.img(style="background-image:url(img/men/men2.jpg)")
@@ -147,19 +198,19 @@ html
 								div.img(style="background-image:url(img/women/women1.jpg)")
 								.cover
 								.btn-conteiner
-									button.btn-main.white t-Shirts &nbsp;
+									button.btn-main.white T-shirts &nbsp;
 										span.md-arrow-forward
 							li
 								div.img(style="background-image:url(img/women/women2.jpg)")
 								.cover
 								.btn-conteiner
-									button.btn-main.white Shirts &nbsp;
+									button.btn-main.white Raglan &nbsp;
 										span.md-arrow-forward
 							li
 								div.img(style="background-image:url(img/women/women3.jpg)")
 								.cover
 								.btn-conteiner
-									button.btn-main.white Wests &nbsp;
+									button.btn-main.white Tanks &nbsp;
 										span.md-arrow-forward
 							li
 								div.img(style="background-image:url(img/women/women4.jpg)")
@@ -167,6 +218,59 @@ html
 								.btn-conteiner
 									button.btn-main.white Hoodies &nbsp;
 										span.md-arrow-forward
+			.row(window-height)
+				.col-md-12.sub-block.mens.bottom
+					.container
+						.caption
+							.title Mens bottom
+							.text Lorem Ipsum is simply dummy text of the printing and typesetting industry...
+
+						ul.image-group
+							li
+								div.img(style="background-image:url(img/men/men5.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white Pyjamas &nbsp;
+										span.md-arrow-forward
+							li
+								div.img(style="background-image:url(img/men/men6.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white Boxers &nbsp;
+										span.md-arrow-forward
+
+				.col-md-12.sub-block.womens.bottom
+					.container
+						.caption
+							.title Womens bottom
+							.text Lorem Ipsum is simply dummy text of the printing and typesetting industry...
+
+						ul.image-group
+							li
+								div.img(style="background-image:url(img/women/women5.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white Boxers  &nbsp;
+										span.md-arrow-forward
+							li
+								div.img(style="background-image:url(img/women/women6.jpg)")
+								.cover
+								.btn-conteiner
+									button.btn-main.white Leggings  &nbsp;
+										span.md-arrow-forward
+			.row(window-height)
+				.col-md-12.sub-block.mobile-covers(paralla-x="{'xpos':'50%','speed':'-0.15'}")
+					.container
+						.caption
+							.title Mobile Covers
+							.text Apple &nbsp; | &nbsp;  Asus &nbsp; | &nbsp; Google &nbsp; | &nbsp; Huawei &nbsp; | &nbsp; LG &nbsp; | &nbsp;  Micromax &nbsp; | &nbsp; Motorola &nbsp; | &nbsp; Samsung &nbsp; | &nbsp; Sony &nbsp; Xiaomi &nbsp; | &nbsp; HTC &nbsp; | &nbsp; OnePlus
+				.col-md-12.sub-block.fanbook(paralla-x="{'xpos':'50%','speed':'-0.15'}")
+					.container
+						.caption
+							.text-conteiner
+								.title FANBOOK
+								.text Upload your pics with our products to get featured. Upload your picture &nbsp;
+									a(href="#") here
 
 
 				// /.navbar-collapse
@@ -176,5 +280,6 @@ html
 		script(src="js/libs/angular.min.js")
 		script(src="js/libs/ui-bootstrap-tpls-0.13.0.js")
 		script(src="js/plugins/angular-animate.min.js")
+		script(src="js/plugins/jquery.parallax-1.1.3.js")
 		script(src="js/controllers/main_ctrl.js")
 		script(src="js/directives/main_directive.js")
